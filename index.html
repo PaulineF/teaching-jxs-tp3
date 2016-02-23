@@ -19,19 +19,22 @@
             <input ng-model="filter"/>
             <select ng-model="pokemon">
                 <option ng-repeat="pokemon in pokemons | filter:filter"
-                        value="{{pokemon.value}}">
-                    {{pokemon.displayName}}
+                        value="{{pokemon.resource_uri}}">
+                    {{pokemon.name}}
                 </option>
             </select>
 
-            <button ng-click="$log.log(pokemon);">Go !</button>
 
+            <button ng-click="go(pokemon)">Go !</button>
 
         </div>
 
         <!-- Pokémon information -->
-        <div>
-            <pre>number =  {{number}}</pre>
+        <div ng-controller="affichage">
+            <pre>
+                Nom : {{pokemonname}}
+            </pre>
+
         </div>
 
 	</div>
