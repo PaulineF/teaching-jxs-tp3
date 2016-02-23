@@ -12,11 +12,27 @@
 	<div class="container">
 		<h1>Pokésir</h1>
 
-		<!-- Search -->
-		<div></div>
+        <!-- Search -->
+        <div ng-controller="pokedexCtrl">
+            <input ng-model="number" name="numbersearch" class="input" ng-model-options="{ getterSetter: true }" />
+            <br/>
+            <input ng-model="filter"/>
+            <select ng-model="pokemon">
+                <option ng-repeat="pokemon in pokemons | filter:filter"
+                        value="{{pokemon.value}}">
+                    {{pokemon.displayName}}
+                </option>
+            </select>
 
-		<!-- Pokémon information -->
-		<div></div>
+            <button ng-click="$log.log(pokemon);">Go !</button>
+
+
+        </div>
+
+        <!-- Pokémon information -->
+        <div>
+            <pre>number =  {{number}}</pre>
+        </div>
 
 	</div>
 
