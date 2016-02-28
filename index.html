@@ -17,7 +17,7 @@
             <input ng-model="number" name="numbersearch" class="input" ng-model-options="{ getterSetter: true }" />
             <br/>
             <input ng-model="filter"/>
-            <select ng-model="pokemon">
+            <select ng-model="SelectPokemon">
                 <option ng-repeat="pokemon in pokemons | filter:filter"
                         value="{{pokemon.resource_uri}}">
                     {{pokemon.name}}
@@ -25,15 +25,32 @@
             </select>
 
 
-            <button ng-click="go(pokemon)">Go !</button>
-
+            <button ng-click="go(SelectPokemon)">Go !</button>
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <td>{{pokemonObj.pkdx_id}}</td>
+                </tr>
+                <tr>
+                    <th>Nom</th>
+                    <td>{{pokemonObj.name}}</td>
+                </tr>
+                <tr>
+                    <th>Attaques</th>
+                    <td>
+                        <ul>
+                            <li ng-repeat=" move in pokemonObj.moves">
+                                {{ move.name }}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <!-- Pokémon information -->
         <div ng-controller="affichage">
-            <pre>
-                Nom : {{pokemonname}}
-            </pre>
+
 
         </div>
 
