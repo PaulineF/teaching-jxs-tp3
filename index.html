@@ -14,13 +14,11 @@
 
         <!-- Search -->
         <div ng-controller="pokedexCtrl">
-            <input ng-model="number" name="numbersearch" class="input" ng-model-options="{ getterSetter: true }" />
-            <br/>
-            <input ng-model="filter"/>
+            <input ng-model="filter" placeholder="Nom du pokemon"/>
             <select ng-model="SelectPokemon">
                 <option ng-repeat="pokemon in pokemons | filter:filter"
-                        value="{{pokemon.resource_uri}}">
-                    {{pokemon.name}}
+                        value="{{pokemon.entry_number}}">
+                    {{pokemon.pokemon_species.name}}
                 </option>
             </select>
 
@@ -29,13 +27,16 @@
             <table class="table">
                 <tr>
                     <th>ID</th>
-                    <td>{{pokemonObj.pkdx_id}}</td>
+                    <td>{{pokemonObj.id}}</td>
                 </tr>
                 <tr>
                     <th>Nom</th>
                     <td>{{pokemonObj.name}}</td>
                 </tr>
                 <tr>
+                    <th>Habitation</th>
+                    <td>{{pokemonObj.habitat.name}}</td>
+                    <!-- V1 de pokeapi
                     <th>Attaques</th>
                     <td>
                         <ul>
@@ -43,7 +44,11 @@
                                 {{ move.name }}
                             </li>
                         </ul>
-                    </td>
+                    </td>-->
+                </tr>
+                <tr>
+                    <th>Generation</th>
+                    <td>{{pokemonObj.generation.name}}</td>
                 </tr>
             </table>
         </div>

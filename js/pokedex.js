@@ -4,16 +4,13 @@ pokeApp.config(['$resourceProvider', function($resourceProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
 }]);
 
-var pokeApiUrl = "http://pokeapi.co/"
+var pokeApiUrl = "http://pokeapi.co/";
 
-
-var app = angular.module("pokedex", ['ngResource']);
-
-app.factory('searchPokemon', function($resource){
+pokeApp.factory('searchPokemon', function($resource){
     return $resource("http://pokeapi.co/api/v2/pokemon-species/:id/", {id:'@id'});
 
 });
-app.controller("pokedexCtrl", function($scope, $log, $http, $resource, searchPokemon) {
+pokeApp.controller("pokedexCtrl", function($scope, $log, $http, $resource, searchPokemon) {
     $scope.$log = $log;
 
     $http({
@@ -24,14 +21,11 @@ app.controller("pokedexCtrl", function($scope, $log, $http, $resource, searchPok
         $scope.pokemons = response.data.pokemon_entries;
     });
     $scope.go = function(idPoke){
-
-
         $scope.pokemonObj = searchPokemon.get({id:idPoke});
-
     }
 })
 
-app.controller("affichage", function($scope, $resource){
+pokeApp.controller("affichage", function($scope, $resource){
 
 });
 /*
