@@ -26,8 +26,5 @@ pokeApp.controller("pokedexCtrl", function($scope, $log, $http, $resource, searc
 })
 
 pokeApp.controller("affichage", function($scope, $resource){
-
+ //$scope.watch...
 });
-/*
-
-        console.log(pokemon);*/
