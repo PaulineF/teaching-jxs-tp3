@@ -3,9 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-
 </head>
 <body ng-app="pokedex">
 
@@ -36,15 +34,6 @@
                 <tr>
                     <th>Habitation</th>
                     <td>{{pokemonObj.habitat.name}}</td>
-                    <!-- V1 de pokeapi
-                    <th>Attaques</th>
-                    <td>
-                        <ul>
-                            <li ng-repeat=" move in pokemonObj.moves">
-                                {{ move.name }}
-                            </li>
-                        </ul>
-                    </td>-->
                 </tr>
                 <tr>
                     <th>Generation</th>
@@ -52,15 +41,10 @@
                 </tr>
             </table>
         </div>
-
         <!-- Pokémon information -->
         <div ng-controller="affichage">
-
-
         </div>
-
 	</div>
-
     <!-- Dependencies -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -69,7 +53,5 @@
 
     <!-- Pokedex app -->
     <script src="js/pokedex.js"></script>
-
-
 </body>
 </html>
